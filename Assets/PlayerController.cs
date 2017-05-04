@@ -21,6 +21,6 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-        GetComponent<Material>().color = Color.blue;
+        GetComponent<MeshRenderer>().material.color = Color.blue;
     }
 }
