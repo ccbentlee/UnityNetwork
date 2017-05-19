@@ -60,7 +60,7 @@ public class NetworkManagerCustom : NetworkManager
         else
         {
             GameObject go = Instantiate(other) as GameObject;
-            NetworkServer.AddPlayerForConnection(conn,go,playerControllerId);
+            NetworkServer.AddPlayerForConnection(conn, go, playerControllerId);
         }
 
     }
