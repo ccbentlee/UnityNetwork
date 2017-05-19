@@ -19,9 +19,21 @@ public class NetworkManagerCustom : NetworkManager
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             base.ServerChangeScene("Main");
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            networkAddress = "10.0.1.8";
+            StartClient();
+        }
+    }
+
+    public override void OnServerConnect(NetworkConnection conn)
+    {
+        base.OnServerConnect(conn);
+        print("OnServerConnect ");
     }
 }
