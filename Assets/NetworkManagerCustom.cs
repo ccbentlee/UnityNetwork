@@ -47,10 +47,22 @@ public class NetworkManagerCustom : NetworkManager
         print("OnServerReady");
     }
 
+    public GameObject other;
+    int count;
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
-        base.OnServerAddPlayer(conn, playerControllerId);
-        print("OnServerAddPlayer");
+        if (count == 0)
+        {
+            base.OnServerAddPlayer(conn, playerControllerId);
+            print("OnServerAddPlayer");
+            count++;
+        }
+        else
+        {
+            GameObject go = Instantiate(other) as GameObject;
+            NetworkServer.AddPlayerForConnection(conn,go,playerControllerId);
+        }
+
     }
 
     public override void OnClientSceneChanged(NetworkConnection conn)
