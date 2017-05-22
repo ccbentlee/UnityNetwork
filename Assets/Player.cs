@@ -30,6 +30,12 @@ public class Player : NetworkBehaviour
 
     void normalPlus()
     {
+        CmdnormalPlus();
+    }
+
+    [CommandAttribute]
+    void CmdnormalPlus()
+    {
         num++;
     }
 }
