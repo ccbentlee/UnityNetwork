@@ -8,12 +8,13 @@ public class Player : NetworkBehaviour
 
     void Start()
     {
-        num = 10;
+        num = Random.Range(1, 100);
+        GetComponent<TextMesh>().text = num.ToString();
     }
 
     void Update()
     {
-        GetComponent<TextMesh>().text = num.ToString();
+        // GetComponent<TextMesh>().text = num.ToString();
         if (!isLocalPlayer)
         {
             return;
@@ -24,20 +25,20 @@ public class Player : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            CmdnormalPlus();
+            CmdnormalPlus(num);
         }
     }
 
     [CommandAttribute]
-    void CmdnormalPlus()
+    void CmdnormalPlus(int n)
     {
-        num++;
-        RpcnormalPlus();
+        RpcnormalPlus(n);
     }
 
     [ClientRpcAttribute]
-    void RpcnormalPlus()
+    void RpcnormalPlus(int n)
     {
-        num++;
+        n++;
+        GetComponent<TextMesh>().text = n.ToString();
     }
 }
