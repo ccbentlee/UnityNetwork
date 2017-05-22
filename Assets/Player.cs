@@ -24,13 +24,8 @@ public class Player : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            normalPlus();
+            CmdnormalPlus();
         }
-    }
-
-    void normalPlus()
-    {
-        CmdnormalPlus();
     }
 
     [CommandAttribute]
