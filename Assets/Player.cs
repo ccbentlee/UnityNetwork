@@ -4,6 +4,32 @@ using UnityEngine;
 using UnityEngine.Networking;
 public class Player : NetworkBehaviour
 {
-    [SyncVar]
-    public int number;
+    public int num = 10;
+
+    void Start()
+    {
+        num = 10;
+    }
+
+    void Update()
+    {
+        GetComponent<TextMesh>().text = num.ToString();
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 5f;
+        transform.Translate(x, 0, 0);
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            normalPlus();
+        }
+    }
+
+    void normalPlus()
+    {
+        num++;
+    }
 }
