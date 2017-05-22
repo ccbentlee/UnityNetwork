@@ -32,5 +32,12 @@ public class Player : NetworkBehaviour
     void CmdnormalPlus()
     {
         num++;
+        RpcnormalPlus();
+    }
+
+    [ClientRpcAttribute]
+    void RpcnormalPlus()
+    {
+        num++;
     }
 }
