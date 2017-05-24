@@ -39,7 +39,7 @@ public class Player : NetworkBehaviour
     [ClientRpcAttribute]
     void RpcnormalPlus(int n)
     {
-        n++;
+        num = n++;
         GetComponent<TextMesh>().text = n.ToString();
     }
 }
