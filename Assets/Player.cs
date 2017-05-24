@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.Networking;
 public class Player : NetworkBehaviour
 {
+    [SyncVarAttribute]
     public int num = 10;
 
     void Start()
     {
-        num = Random.Range(1, 100);
+        // num = Random.Range(1, 100);
         GetComponent<TextMesh>().text = num.ToString();
     }
 
