@@ -24,7 +24,8 @@ public class Player : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            CmdnormalPlus(num);
+            // CmdnormalPlus(num);
+            RpcnormalPlus(num);
         }
     }
 
