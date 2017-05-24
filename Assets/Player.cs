@@ -9,13 +9,11 @@ public class Player : NetworkBehaviour
 
     void Start()
     {
-        // num = Random.Range(1, 100);
         GetComponent<TextMesh>().text = num.ToString();
     }
 
     void Update()
     {
-        // GetComponent<TextMesh>().text = num.ToString();
         if (!isLocalPlayer)
         {
             return;
@@ -39,7 +37,8 @@ public class Player : NetworkBehaviour
     [ClientRpcAttribute]
     void RpcnormalPlus(int n)
     {
-        num = n++;
+        n++;
+        num = n;
         GetComponent<TextMesh>().text = n.ToString();
     }
 }
